@@ -1,6 +1,7 @@
 plotly
 streamlit
 matplotlib
-streamlit_keplergl
+keplergl
 numerize
 pillow
+
