@@ -66,20 +66,20 @@ elif page == 'Weather component and bike usage':
 ### Most popular stations
 elif page == 'Most popular stations':
 
-  fig = go.Figure(go.Bar(
+    fig = go.Figure(go.Bar(
     x=top20['start_station_name'],
     y=top20['value'],
     marker=dict(color=top20['value'], colorscale='Greens')
-))
+    ))
 
-fig.update_layout(
+    fig.update_layout(
     title='Top 20 most popular bike stations in Chicago',
     xaxis_title='Start stations',
     yaxis_title='Sum of trips',
     width=900, height=600
-)
+    )
 
-st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True)
 
     st.markdown("Top stations: Streeter Drive/Grand Avenue, Canal Street/Adams Street, Clinton Street/Madison Street. The bar chart shows clear preferences for leading stations.")
 
