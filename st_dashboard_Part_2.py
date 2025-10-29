@@ -77,15 +77,15 @@ elif page == 'Most popular stations':
     total_rides = float(df1['bike_rides_daily'].count())    
     st.metric(label='Total Bike Rides', value=numerize.numerize(total_rides))
     
-fig = go.Figure(go.Bar(x = top20['start_station_name'], y = top20['value']))
-fig = go.Figure(go.Bar(x = top20['start_station_name'], y = top20['value'], marker={'color': top20['value'],'colorscale': 'Greens'}))
-fig.update_layout(
+    fig = go.Figure(go.Bar(x = top20['start_station_name'], y = top20['value']))
+    fig = go.Figure(go.Bar(x = top20['start_station_name'], y = top20['value'], marker={'color': top20['value'],'colorscale': 'Greens'}))
+    fig.update_layout(
     title = 'Top 20 most popular bike stations in NYC',
     xaxis_title = 'Start stations',
     yaxis_title ='Sum of trips',
     width = 900, height = 600
-)
-fig.show()
+    )
+    fig.show()
     st.markdown("Top stations: Streeter Drive/Grand Avenue, Canal Street/Adams Street, Clinton Street/Madison Street. The bar chart shows clear preferences for leading stations.")
 
 ### Interactive map with aggregated bike trips
