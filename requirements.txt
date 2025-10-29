@@ -2,5 +2,6 @@ plotly
 streamlit
 matplotlib
 streamlit_keplergl
-numerize
+numerize==0.12
 pillow
+
