@@ -8,3 +8,5 @@ streamlit-folium
 shapely
 scikit-learn
 pydeck>=0.8.0
+from streamlit_keplergl import keplergl_static
+
