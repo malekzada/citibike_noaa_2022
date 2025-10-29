@@ -65,18 +65,7 @@ elif page == 'Weather component and bike usage':
 
 ### Most popular stations
 elif page == 'Most popular stations':
-    with st.sidebar:
-        season_filter = st.multiselect(
-            label='Select the season',
-            options=df['season'].unique(),
-            default=df['season'].unique()
-        )
 
-    df1 = df.query('season == @season_filter')
-    
-    total_rides = float(df1['bike_rides_daily'].count())    
-    st.metric(label='Total Bike Rides', value=numerize.numerize(total_rides))
-    
     fig = go.Figure(go.Bar(x = top20['start_station_name'], y = top20['value']))
     fig = go.Figure(go.Bar(x = top20['start_station_name'], y = top20['value'], marker={'color': top20['value'],'colorscale': 'Greens'}))
     fig.update_layout(
