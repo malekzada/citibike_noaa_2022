@@ -1,7 +1,11 @@
-plotly
-streamlit
-matplotlib
-streamlit_keplergl
-numerize
-pillow
+streamlit==1.38.0
+pandas==2.2.2
+numpy==1.26.4
+plotly==5.24.1
+matplotlib==3.9.2
+numerize==0.12
+Pillow==10.4.0
 
+# Working KeplerGL integration
+keplergl==0.3.2
+git+https://github.com/andfanilo/streamlit-keplergl.git
