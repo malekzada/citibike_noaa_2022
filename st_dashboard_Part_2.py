@@ -19,8 +19,8 @@ st.title("Citibike Bikes Strategy Dashboard")
 st.sidebar.title("Aspect Selector")
 page = st.sidebar.selectbox('Select an aspect of the analysis',
   ["Introduction","Weather and bike usage",
-   "popular stations",
-   "Interactive map with aggregated bike trips", "Recommendations"])
+   "Popular stations",
+   "Interactive map of bike trips", "Recommendations"])
 
 ########################## Import data ###########################################################################################
 
@@ -46,7 +46,7 @@ if page == "Introduction":
     st.image(myImage)
 
 ### Weather and bike usage
-elif page == 'Weather component and bike usage':
+elif page == 'Weather and bike usage':
     ### Create the dual axis line chart page ###
     df_weather = pd.read_csv('wheather.csv', parse_dates=['date'])
     df_weather.sort_values('date', inplace=True)
@@ -88,7 +88,7 @@ elif page == 'Weather component and bike usage':
 
   
 ### Popular stations
-elif page == 'Most popular stations':
+elif page == 'Popular stations':
 
     fig = go.Figure(go.Bar(
     x=top20['start_station_name'],
