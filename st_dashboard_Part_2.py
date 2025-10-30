@@ -43,7 +43,7 @@ if page == "Intro page":
 
 ### Weather component and bike usage
 elif page == 'Weather component and bike usage':
-  df["date"] = pd.to_datetime(df["date"])
+    df["date"] = pd.to_datetime(df["date"])
   
    # Aggregate daily data
     daily_trips = df.groupby("date")["ride_id"].count().reset_index(name="trip_count")
