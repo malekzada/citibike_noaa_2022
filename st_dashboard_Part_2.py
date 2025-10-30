@@ -47,7 +47,7 @@ elif page == 'Weather component and bike usage':
 
     # Aggregating daily data
     daily_trips = df.groupby("date")["bike_id"].count().reset_index(name="trip_count")
-    daily_temp = df.groupby("date")["temperature"].mean().reset_index(name="temperature")
+    daily_temp = df.groupby("date")["avgTemp"].mean().reset_index(name="avgTemp")
     daily = pd.merge(daily_trips, daily_temp, on="date")
 
     # Trip counts
@@ -58,7 +58,7 @@ elif page == 'Weather component and bike usage':
 
     # Temperature
     fig_line.add_trace(go.Scatter(
-        x=daily["date"], y=daily["temperature"],
+        x=daily["date"], y=daily["avgTemp"],
         name="Temperature (°C)", yaxis="y2"
     ))
 
