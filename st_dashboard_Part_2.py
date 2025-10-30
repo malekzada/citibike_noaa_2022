@@ -105,10 +105,13 @@ elif page == 'Most popular stations':
 
 ### Interactive map with aggregated bike trips
 elif page == 'Interactive map with aggregated bike trips': 
-    st.write("Interactive map showing aggregated bike trips over Chicago")
+        ### Add the map ###
+    st.write("Interactive map showing aggregated bike trips over New York")
 
-    path_to_html = "Divvy Bike Trips Aggregated.html" 
-    with open(path_to_html, 'r') as f: 
+    path_to_html = "Citibike_bike_trips.html" 
+
+    # Read file and keep in variable
+    with open(path_to_html,'r') as f: 
         html_data = f.read()
 
     st.header("Aggregated Bike Trips in Chicago")
