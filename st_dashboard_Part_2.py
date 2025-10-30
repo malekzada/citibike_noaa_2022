@@ -56,7 +56,7 @@ elif page == 'Weather component and bike usage':
     fig_line = go.Figure()
 
     fig_line.add_trace(go.Scatter(
-        x=daily["date"], y=daily["trip_count"],
+        x=daily["date"], y=daily["value"],
         name="Trip Count", yaxis="y1",
         line=dict(color="blue")
     ))
