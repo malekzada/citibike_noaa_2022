@@ -8,6 +8,7 @@ from datetime import datetime as dt
 from PIL import Image
 import numerize
 import streamlit.components.v1 as components
+import os
 
 ########################### Initial settings for the dashboard ####################################################
 
