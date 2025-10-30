@@ -110,7 +110,7 @@ elif page == 'Interactive map with aggregated bike trips':
     path_to_html = "Citibike_bike_trips.html"
     
     if os.path.exists(path_to_html):
-        st.markdown("### 🌐 Advanced Trip Flow Visualization")
+        st.markdown("### Interactive visualization of NYC trip map")
         st.markdown("Interactive map showing aggregated bike trips across New York City")
         
         # Read file and display
@@ -118,9 +118,6 @@ elif page == 'Interactive map with aggregated bike trips':
             html_data = f.read()
         
         st.components.v1.html(html_data, height=700)
-
-    st.header("Aggregated Bike Trips in NYC")
-    components.html(html_data, height=1000)
     st.markdown("#### Using the filter on the left-hand side of the map we can check whether the most popular start stations also appear in the most popular trips.")
     st.markdown("The most popular start stations are Streeter Drive/Grand Avenue, Canal Street/Adams Street, Clinton Street/Madison Street.")
 
