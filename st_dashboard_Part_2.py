@@ -44,7 +44,7 @@ if page == "Intro page":
 ### Weather component and bike usage
 elif page == 'Weather component and bike usage':
 
-    # Aggregateing daily data
+    # Aggregating daily data
     daily_trips = df.groupby("date")["ride_id"].count().reset_index(name="trip_count")
     daily_temp = df.groupby("date")["temperature"].mean().reset_index(name="temperature")
     daily = pd.merge(daily_trips, daily_temp, on="date")
@@ -53,29 +53,38 @@ elif page == 'Weather component and bike usage':
 
     # Add trip counts
     fig_line.add_trace(go.Scatter(
-    x=daily["date"], y=daily["trip_count"],
-    name="Trip Count", yaxis="y1", line=dict(color="blue")
+        x=daily["date"], 
+        y=daily["trip_count"],
+        name="Trip Count",
+        yaxis="y1",
+        line=dict(color="blue")
     ))
 
     # Add temperature
     fig_line.add_trace(go.Scatter(
-    x=daily["date"], y=daily["temperature"],
-    name="Temperature (°C)", yaxis="y2", line=dict(color="red")
+        x=daily["date"], 
+        y=daily["temperature"],
+        name="Temperature (°C)",
+        yaxis="y2",
+        line=dict(color="red")
     ))
 
     # Layout with dual axis
     fig_line.update_layout(
-    title="Daily CitiBike Trips vs. Temperature (2022)",
-    xaxis=dict(title="Date"),
-    yaxis=dict(title="Trip Count", side="left"),
-    yaxis2=dict(title="Temperature (°C)", overlaying="y", side="right"),
-    legend=dict(x=0.1, y=0.9)
+        title="Daily CitiBike Trips vs. Temperature (2022)",
+        xaxis=dict(title="Date"),
+        yaxis=dict(title="Trip Count", side="left"),
+        yaxis2=dict(title="Temperature (°C)", overlaying="y", side="right"),
+        legend=dict(x=0.1, y=0.9)
     )
+
     st.plotly_chart(fig_line, use_container_width=True)
-    
+
     st.markdown(
-        "There is an obvious correlation between temperature changes and daily bike trips. "
-        "Bike usage increases during warmer months (May–October)."
+        """
+        There is an obvious correlation between temperature changes and daily bike trips.  
+        Usage clearly rises in warmer months (May–October), demonstrating strong weather dependency.
+        """
     )
   
 ### Most popular stations
