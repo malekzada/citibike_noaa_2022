@@ -105,16 +105,20 @@ elif page == 'Most popular stations':
 
 ### Interactive map with aggregated bike trips
 elif page == 'Interactive map with aggregated bike trips': 
-        ### Add the map ###
-    st.write("Interactive map showing aggregated bike trips over New York")
+    # Check for map file
+    path_to_html = "Citibike_bike_trips.html"
+    
+    if os.path.exists(path_to_html):
+        st.markdown("### 🌐 Advanced Trip Flow Visualization")
+        st.markdown("Interactive map showing aggregated bike trips across New York City")
+        
+        # Read file and display
+        with open(path_to_html, 'r', encoding='utf-8') as f: 
+            html_data = f.read()
+        
+        st.components.v1.html(html_data, height=700)
 
-    path_to_html = "Citibike_bike_trips.html" 
-
-    # Read file and keep in variable
-    with open(path_to_html,'r') as f: 
-        html_data = f.read()
-
-    st.header("Aggregated Bike Trips in Chicago")
+    st.header("Aggregated Bike Trips in NYC")
     components.html(html_data, height=1000)
     st.markdown("#### Using the filter on the left-hand side of the map we can check whether the most popular start stations also appear in the most popular trips.")
     st.markdown("The most popular start stations are Streeter Drive/Grand Avenue, Canal Street/Adams Street, Clinton Street/Madison Street.")
