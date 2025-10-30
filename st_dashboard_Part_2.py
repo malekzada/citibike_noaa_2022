@@ -119,16 +119,17 @@ elif page == 'Interactive map with aggregated bike trips':
         
         st.components.v1.html(html_data, height=700)
     st.markdown("In this visualization, the map highlights CitiBike trip flows.")
-    st.markdown("I changed station points to green so they stand out against the base map.")
-    st.markdown("I added an Arc Layer connecting start and end stations, with arc thickness and color mapped to count, so busier routes are emphasized.")
-    st.markdown("I used a yellow color for the start of the journey and reddish for the end of the journey to clearly distinguish between them.")
-    st.markdown("I also added a filter on count, which allows me to dynamically explore only the busiest trip flows, specifically over 500 trips.")
+    st.markdown("Starting points of each journey is highlighter by brown colors and yellow for end of the journey.")
+    st.markdown("some routes that are closer to each other have more trips than those that are further apart")
+    st.markdown("Busiest trip flows are clearly seen with orange lines, specifically over 500 trips.")
 
 ### Recommendations page
 else:
     st.header("Conclusions and recommendations")
-    bikes = Image.open("recs_page.png")  # source: Midjourney
-    st.image(bikes)
-    st.markdown("### Recommendations for Divvy Bikes:")
-    st.markdown("- Add more stations along the water line, such as Streeter Dr/Grand Avenue, Millenium Park, Columbus Dr/Randolph Street, Shedd Aquarium, Michigan Avenue/Oak Street, Canal Street/Adams Street")
-    st.markdown("- Fully stock bikes in these stations during warmer months to meet higher demand; reduce supply in winter to lower logistics costs")
+    st.markdown("### Recommendations for Citibike:")
+    st.markdown("- Increase dock capacity in Midtown, Financial District routes and school areas for students.")
+    st.markdown("- Expand e-bike availability during summer and reduce idle equipment in winter.")
+    st.markdown("- Place micro stations along common trip paths to shorten walk distances and support trip flow.")
+    st.markdown("- Prioritize e-bike charging around bridge entrances elevatied zones.")
+    st.markdown("- Partner with Mapping companies to add protected bike lanes along top routes.")
+  
