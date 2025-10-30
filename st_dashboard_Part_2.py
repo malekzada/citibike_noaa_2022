@@ -45,34 +45,33 @@ if page == "Intro page":
 elif page == 'Weather component and bike usage':
     fig_line = go.Figure()
 
-    # Aggregateing daily data
+    # Aggregating daily data
     daily_trips = df.groupby("date")["ride_id"].count().reset_index(name="trip_count")
     daily_temp = df.groupby("date")["temperature"].mean().reset_index(name="temperature")
     daily = pd.merge(daily_trips, daily_temp, on="date")
 
-    # Add trip counts
+    # Trip counts
     fig_line.add_trace(go.Scatter(
-    x=daily["date"], y=daily["trip_count"],
-    name="Trip Count", yaxis="y1", line=dict(color="blue")
+        x=daily["date"], y=daily["trip_count"],
+        name="Trip Count", yaxis="y1"
     ))
 
-    # Add temperature
+    # Temperature
     fig_line.add_trace(go.Scatter(
-    x=daily["date"], y=daily["temperature"],
-    name="Temperature (°C)", yaxis="y2", line=dict(color="red")
+        x=daily["date"], y=daily["temperature"],
+        name="Temperature (°C)", yaxis="y2"
     ))
 
-    # Layout with dual axis
+    # Dual axis
     fig_line.update_layout(
-    title="Daily CitiBike Trips vs. Temperature (2022)",
-    xaxis=dict(title="Date"),
-    yaxis=dict(title="Trip Count", side="left"),
-    yaxis2=dict(title="Temperature (°C)", overlaying="y", side="right"),
-    legend=dict(x=0.1, y=0.9)
+        title="Daily CitiBike Trips vs. Temperature (2022)",
+        xaxis=dict(title="Date"),
+        yaxis=dict(title="Trip Count"),
+        yaxis2=dict(title="Temperature (°C)", overlaying="y", side="right"),
+        legend=dict(x=0.1, y=0.9)
     )
-    fig_line.show()
 
-    st.plotly_chart(fig_2, use_container_width=True)
+    st.plotly_chart(fig_line, use_container_width=True)
     st.markdown("There is an obvious correlation between temperature changes and daily bike trips. Bike usage is higher in warmer months, approximately May to October.")
 
 ### Most popular stations
