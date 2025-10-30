@@ -44,43 +44,36 @@ if page == "Intro page":
 ### Weather component and bike usage
 elif page == 'Weather component and bike usage':
   
-    ### Create the dual axis line chart page
-    df.sort_values('date', inplace=True)
-    fig_2 = make_subplots(specs = [[{"secondary_y": True}]])
+   # Aggregate daily data
+daily_trips = df.groupby("date")["ride_id"].count().reset_index(name="trip_count")
+daily_temp = df.groupby("date")["temperature"].mean().reset_index(name="temperature")
+daily = pd.merge(daily_trips, daily_temp, on="date")
 
-    fig_2.add_trace(
-        go.Scatter(
-            x=df['date'],
-            y=df['trip_count'],
-            name='Daily Bike Rides',
-            line=dict(color='blue')
-        ),
-        secondary_y=False
-    )
+fig_line = go.Figure()
 
-    fig_2.add_trace(
-        go.Scatter(
-            x=df['date'],
-            y=df['temperature'],
-            name='Avg Temperature (°C)',
-            line=dict(color='red')
-        ),
-        secondary_y=True
-    )
+# Add trip counts
+fig_line.add_trace(go.Scatter(
+    x=daily["date"], y=daily["trip_count"],
+    name="Trip Count", yaxis="y1", line=dict(color="blue")
+))
 
-    fig_2.update_layout(
-        title='Bike Rides and Temperature Over Time in NYC',
-        xaxis_title='Date',
-        yaxis_title='Trip Count',
-        yaxis2_title='Avg Temperature (°C)',
-        legend=dict(x=0.01, y=0.99),
-        plot_bgcolor='white',
-        title_x=0.5
-    )
+# Add temperature
+fig_line.add_trace(go.Scatter(
+    x=daily["date"], y=daily["temperature"],
+    name="Temperature (°C)", yaxis="y2", line=dict(color="red")
+))
 
-    st.plotly_chart(fig_2, use_container_width=True)
-    st.markdown("There is an obvious correlation between the rise and drop of temperatures and their relationship with the frequency of bike trips taken daily. As temperatures plunge, so does bike usage. This insight indicates that the shortage problem may be prevalent merely in the warmer months, approximately from May to October.")
+# Layout with dual axis
+fig_line.update_layout(
+    title="Daily CitiBike Trips vs. Temperature (2022)",
+    xaxis=dict(title="Date"),
+    yaxis=dict(title="Trip Count", side="left"),
+    yaxis2=dict(title="Temperature (°C)", overlaying="y", side="right"),
+    legend=dict(x=0.1, y=0.9)
+)
 
+# ✅ Display in Streamlit
+st.plotly_chart(fig_line, use_container_width=True)
   
 ### Most popular stations
 elif page == 'Most popular stations':
