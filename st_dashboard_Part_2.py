@@ -43,21 +43,15 @@ if page == "Intro page":
 
 ### Weather component and bike usage
 elif page == 'Weather component and bike usage':
-    # Aggregateing daily data
-    daily_trips = df.groupby("date")["ride_id"].count().reset_index(name="trip_count")
-    daily_temp = df.groupby("date")["temperature"].mean().reset_index(name="temperature")
-    daily = pd.merge(daily_trips, daily_temp, on="date")
   
     ### Create the dual axis line chart page
-    
     df.sort_values('date', inplace=True)
-
     fig_2 = make_subplots(specs = [[{"secondary_y": True}]])
 
     fig_2.add_trace(
         go.Scatter(
-            x=daily['date'],
-            y=daily['trip_count'],
+            x=df['date'],
+            y=df['trip_count'],
             name='Daily Bike Rides',
             line=dict(color='blue')
         ),
@@ -66,8 +60,8 @@ elif page == 'Weather component and bike usage':
 
     fig_2.add_trace(
         go.Scatter(
-            x=daily['date'],
-            y=daily['temperature'],
+            x=df['date'],
+            y=df['temperature'],
             name='Avg Temperature (°C)',
             line=dict(color='red')
         ),
