@@ -16,7 +16,7 @@ st.set_page_config(page_title='Citibike Strategy Dashboard', layout='wide')
 st.title("Citibike Bikes Strategy Dashboard")
 
 # Define side bar
-st.sidebar.title("Aspect Selector")
+st.sidebar.title("Navigator")
 page = st.sidebar.selectbox('Select an aspect of the analysis',
   ["Introduction","Weather and bike usage",
    "Popular stations",
