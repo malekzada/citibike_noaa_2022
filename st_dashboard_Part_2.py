@@ -18,8 +18,8 @@ st.title("Citibike Bikes Strategy Dashboard")
 # Define side bar
 st.sidebar.title("Aspect Selector")
 page = st.sidebar.selectbox('Select an aspect of the analysis',
-  ["Intro page","Weather component and bike usage",
-   "Most popular stations",
+  ["Introduction","Weather and bike usage",
+   "popular stations",
    "Interactive map with aggregated bike trips", "Recommendations"])
 
 ########################## Import data ###########################################################################################
@@ -45,7 +45,7 @@ if page == "Introduction":
     myImage = Image.open("citibike_image.webp")  # source: https://citibikenyc.com/
     st.image(myImage)
 
-### Weather component and bike usage
+### Weather and bike usage
 elif page == 'Weather component and bike usage':
     ### Create the dual axis line chart page ###
     df_weather = pd.read_csv('wheather.csv', parse_dates=['date'])
@@ -87,7 +87,7 @@ elif page == 'Weather component and bike usage':
     st.markdown("There is an obvious correlation between the rise and drop of temperatures and their relationship with the frequency of bike trips taken daily. As temperatures plunge, so does bike usage. This insight indicates that the shortage problem may be prevalent merely in the warmer months, approximately from May to October.")
 
   
-### Most popular stations
+### Popular stations
 elif page == 'Most popular stations':
 
     fig = go.Figure(go.Bar(
@@ -97,7 +97,7 @@ elif page == 'Most popular stations':
     ))
 
     fig.update_layout(
-    title='Top 20 most popular bike stations in Chicago',
+    title='Top 0 most popular bike stations in NYC',
     xaxis_title='Start stations',
     yaxis_title='Sum of trips',
     width=900, height=600
@@ -107,8 +107,8 @@ elif page == 'Most popular stations':
 
     st.markdown("Top stations: Streeter Drive/Grand Avenue, Canal Street/Adams Street, Clinton Street/Madison Street. The bar chart shows clear preferences for leading stations.")
 
-### Interactive map with aggregated bike trips
-elif page == 'Interactive map with aggregated bike trips': 
+### Interactive map of bike trips
+elif page == 'Interactive map of bike trips': 
     # Check for map file
     path_to_html = "Citibike_bike_trips.html"
     
@@ -126,7 +126,7 @@ elif page == 'Interactive map with aggregated bike trips':
     st.markdown("some routes that are closer to each other have more trips than those that are further apart")
     st.markdown("Busiest trip flows are clearly seen with orange lines, specifically over 500 trips.")
 
-### Recommendations page
+### Recommendations
 else:
     st.markdown("### Recommendations for Citibike:")
     st.markdown("- Increase dock capacity in Midtown, Financial District routes and school areas for students.")
