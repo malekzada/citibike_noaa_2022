@@ -12,7 +12,7 @@ import os
 
 ########################### Initial settings for the dashboard ####################################################
 
-st.set_page_config(page_title='Divvy Bikes Strategy Dashboard', layout='wide')
+st.set_page_config(page_title='Citibike Strategy Dashboard', layout='wide')
 st.title("Divvy Bikes Strategy Dashboard")
 
 # Define side bar
