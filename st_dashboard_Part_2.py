@@ -125,7 +125,6 @@ elif page == 'Interactive map with aggregated bike trips':
 
 ### Recommendations page
 else:
-    st.header("Conclusions and recommendations")
     st.markdown("### Recommendations for Citibike:")
     st.markdown("- Increase dock capacity in Midtown, Financial District routes and school areas for students.")
     st.markdown("- Expand e-bike availability during summer and reduce idle equipment in winter.")
