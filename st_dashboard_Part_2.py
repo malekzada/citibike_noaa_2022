@@ -13,7 +13,7 @@ import os
 ########################### Initial settings for the dashboard ####################################################
 
 st.set_page_config(page_title='Citibike Strategy Dashboard', layout='wide')
-st.title("Divvy Bikes Strategy Dashboard")
+st.title("Citibike Bikes Strategy Dashboard")
 
 # Define side bar
 st.sidebar.title("Aspect Selector")
@@ -29,15 +29,18 @@ top20 = pd.read_csv('top20.csv', index_col=0)
 
 ######################################### DEFINE THE PAGES #####################################################################
 
-### Intro page
-if page == "Intro page":
-    st.markdown("#### This dashboard aims at providing helpful insights on the expansion problems Divvy Bikes currently faces.")
-    st.markdown("Right now, Divvy bikes runs into a situation where customers complain about bikes not being available at certain times. The analysis is separated into 4 sections:")
-    st.markdown("- Most popular stations")
-    st.markdown("- Weather component and bike usage")
-    st.markdown("- Interactive map with aggregated bike trips")
-    st.markdown("- Recommendations")
-    st.markdown("Use the dropdown menu on the left 'Aspect Selector' to navigate through the different sections.")
+### Introduction
+if page == "Introduction":
+    st.markdown("""
+    #### This dashboard serves as a data-driven exploration of New York City’s CitiBike network. 
+    It brings together ridership patterns, weather relationships, and station utilization metrics
+    to better understand operational dynamics and address supply-and-demand imbalances across the system.
+
+    ### What This Analysis Explores
+    This tool examines key factors shaping CitiBike performance, including:
+    - Weather Influence	How do temperature and rainfall affect daily usage?
+    - Station Utilization	Which stations see the highest demand? Where is capacity underused?
+    - Spatial Behavior	Where are trip clusters and geographic demand hotspots?""")
 
     myImage = Image.open("citibike_image.webp")  # source: https://citibikenyc.com/
     st.image(myImage)
