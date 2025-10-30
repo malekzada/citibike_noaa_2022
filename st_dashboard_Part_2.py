@@ -84,7 +84,7 @@ elif page == 'Weather and bike usage':
     )
 
     st.plotly_chart(fig_2, use_container_width=True)
-    st.markdown("There is an obvious correlation between the rise and drop of temperatures and their relationship with the frequency of bike trips taken daily. As temperatures plunge, so does bike usage. This insight indicates that the shortage problem may be prevalent merely in the warmer months, approximately from May to October.")
+    st.markdown("Bike usage goes up when the weather is warm and drops when temperatures fall. This means the bike shortage issues mainly happen during the warmer months, especially from May to November.")
 
   
 ### Popular stations
@@ -97,15 +97,13 @@ elif page == 'Popular stations':
     ))
 
     fig.update_layout(
-    title='Top 0 most popular bike stations in NYC',
+    title='Top most popular bike stations in NYC',
     xaxis_title='Start stations',
     yaxis_title='Sum of trips',
     width=900, height=600
     )
 
     st.plotly_chart(fig, use_container_width=True)
-
-    st.markdown("Top stations: Streeter Drive/Grand Avenue, Canal Street/Adams Street, Clinton Street/Madison Street. The bar chart shows clear preferences for leading stations.")
 
 ### Interactive map of bike trips
 elif page == 'Interactive map of bike trips': 
