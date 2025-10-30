@@ -48,7 +48,7 @@ elif page == 'Weather component and bike usage':
     df["date"] = pd.to_datetime(df["date"])
 
     # Aggregate daily data
-    daily_trips = df.groupby("date")["ride_id"].count().reset_index(name="trip_count")
+    daily_trips = df.groupby("date")["ride_id"].count().reset_index(name="value")
     daily_temp = df.groupby("date")["temperature"].mean().reset_index(name="temperature")
     daily = pd.merge(daily_trips, daily_temp, on="date")
 
