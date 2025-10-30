@@ -118,7 +118,15 @@ elif page == 'Interactive map with aggregated bike trips':
             html_data = f.read()
         
         st.components.v1.html(html_data, height=700)
-    st.markdown("#### Using the filter on the left-hand side of the map we can check whether the most popular start stations also appear in the most popular trips.")
+    st.markdown("#### In this visualization, I customized the Kepler map to highlight CitiBike trip flows.
+
+    I changed station points to green so they stand out against the base map.
+
+    I added an Arc Layer connecting start and end stations, with arc thickness and color mapped to count, so busier routes are emphasized.
+
+    I used a yellow color for the start of the journey and reddish for the end of the journey to clearly distinguish between them.
+
+    I also added a filter on count, which allows me to dynamically explore only the busiest trip flows, specifically over 500 trips.")
     st.markdown("The most popular start stations are Streeter Drive/Grand Avenue, Canal Street/Adams Street, Clinton Street/Madison Street.")
 
 ### Recommendations page
